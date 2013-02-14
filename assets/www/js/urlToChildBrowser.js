@@ -17,7 +17,7 @@ function urlToChildBrowser(oldHtmlContent)
 		currIndex = oldHtmlContent.indexOf('"');
 		urlString = oldHtmlContent.substring(0,currIndex+1);
 		//newHtmlContent = newHtmlContent + "#";
-		newHtmlContent = newHtmlContent.insert(newHtmlContent.length+1," class='blue-text' onclick='window.plugins.childBrowser.showWebPage(\""+urlString+", { showLocationBar: false });'");
+		newHtmlContent = newHtmlContent.insert(newHtmlContent.length+1," class='external-link' onclick='window.plugins.childBrowser.showWebPage(\""+urlString+", { showLocationBar: false });'");
 		oldHtmlContent = oldHtmlContent.substring(urlString.length);
 	}
 	if(oldHtmlContent != "")
