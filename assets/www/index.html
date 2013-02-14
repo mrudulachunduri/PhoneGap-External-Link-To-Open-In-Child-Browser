@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+    <title>UrlToChildBrowser</title>	
+     <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css" /> 
+
+    <script src="js/jquery-1.7.2.min.js"></script>	
+	
+	<script src="js/jquery.mobile-1.2.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.xml2json.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+	<script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/urlToChildBrowser.js"></script>	
+	<script>
+	 
+		$("#indexPage").live("pagebeforeshow",function()
+		{
+			addDescriptionToPage();
+		});
+		function addDescriptionToPage()
+		{
+			 $.ajax({ type: "GET",
+                        	url: "file:///android_asset/www/samples/sample.xml",
+                        	crossDomain: true,
+                        	dataType: "text",
+
+                          success: function(result,textStatus,jqXHR) {                           
+							
+							var data = $.xml2json(result);
+							var htmlToAdd = urlToChildBrowser(data.description);
+							$("#divDescriptionContent").append(htmlToAdd);
+                  } ,
+                  error: function(error){
+                  	console.log(error);
+                  }
+
+              });
+		}
+	</script>
+	<style>
+		.blue-text{
+			color:blue;	
+			text-decoration:underline;
+		}
+	</style>
+</head>
+
+<body width="100%">
+
+<div data-role="page" height="100%" width="100%" id="indexPage"> 
+<div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="b" height="40px">
+	<div style="padding-top:10px;">Url To Childbrowser</div>
+</div>
+<div  data-role="content">
+	<div id="divDescriptionContent">
+	</div>
+
+</div>
+
+
+</div> 
+</body>
+</html>
