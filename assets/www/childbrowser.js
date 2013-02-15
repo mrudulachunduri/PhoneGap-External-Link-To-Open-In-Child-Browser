@@ -38,25 +38,7 @@ ChildBrowser.prototype.close = function() {
 };
 
 ChildBrowser.prototype.onLocationChange = function(location) {
-    if(location.indexOf("http://v1.dinnr.co.uk/orders/mobile/checkout/success") == 0)
-	{
-		 cordova.exec(null, null, "ChildBrowser", "close", []);
-		 //navigate to order success page
-		 //alert('order taken successfully');
-		 //open the pop up here
-		 $('#div_order_success_msg').text("Your Dinnr is on it's way and should arrive at your chosen address at "+$("txtDeliveryDate").val()+". Thank you for ordering with Dinnr");
-		 $("#popupOrderSuccess").popup("open");
-		 
-	}
-	
-	if(location.indexOf("http://v1.dinnr.co.uk/orders/mobile/checkout/cancel") == 0)
-	{
-		 cordova.exec(null, null, "ChildBrowser", "close", []);
-		 //navigate to order success page
-		 //alert('order taken successfully');
-		 //open the pop up here	
-		 
-	}
+    
 };
 
 /**
