@@ -28,9 +28,9 @@
 
                           success: function(result,textStatus,jqXHR) {                           
 							
-							var data = $.xml2json(result);
-							var htmlToAdd = urlToChildBrowser(data.description);
-							$("#divDescriptionContent").append(htmlToAdd);
+							var data = $.xml2json(result);							
+							$("#divDescriptionContent").append(data.description);
+							urlToChildBrowser("divDescriptionContent");
                   } ,
                   error: function(error){
                   	console.log(error);
