@@ -12,13 +12,12 @@ Solution:
 		}
 </style>
 
-This script has a function urlToChildBrowser() which takes html as input and outputs the html with the hyperlinks modified to open in ChildBrowser.
-
 Usage:
 
-var htmlToAdd = urlToChildBrowser(data.description);						
-$("#divDescriptionContent").append(htmlToAdd);
+	$("#divDescriptionContent").append(data.description);
+	urlToChildBrowser("divDescriptionContent");
 
 In the above example, the data.description contains the html.
 
-Once the html content is modified, it can be appended to its parent element. The CSS style ‘external-link’ will highlight the links in the html.
+Once the html content is appended to its parent element, th function urlToChildBrowser() is called which takes the name of the parent element as input and modifies the hyperlinks to open in childbrowser.
+The CSS style ‘external-link’ that is added to the hyperlinks will highlight the links in the html.
